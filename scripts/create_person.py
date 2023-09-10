@@ -1,6 +1,6 @@
 import requests
 
-base_url = 'http://127.0.0.1:8000/api'
+base_url = 'https://person-nsnx.onrender.com/api'
 
 url = base_url + '/create/'
 def create_person(name):
