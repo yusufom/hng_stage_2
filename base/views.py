@@ -30,7 +30,7 @@ class PersonView(APIView):
                     "id": person.id,
                     "name": person.name,
                     }
-                return Response(serializers.data, status=status.HTTP_200_OK)
+                return Response(res, status=status.HTTP_200_OK)
             except Person.DoesNotExist:
                 res = {
                     "message": "Not found",

@@ -1,11 +1,10 @@
 import requests
 
 
-base_url = 'https://person-nsnx.onrender.com/api'
+url = 'https://person-nsnx.onrender.com/api/'
 
 def get_person(name):
-    url = base_url + f'?name={name}'
-    r = requests.get(url)
+    r = requests.get(url, data={'name': name})
     return r.text
 
 

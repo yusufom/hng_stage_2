@@ -6,6 +6,9 @@ This is the solution to backend stage two task for the HNG intership
 
 The use case for this api is to get, create, update or delete a Person object with name
 
+## UML model
+![alt text](https://github.com/yusufom/hng_stage_2/blob/main/uml.png?raw=true)
+
 
 ## Request
 
