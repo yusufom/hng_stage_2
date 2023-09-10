@@ -21,6 +21,7 @@ class PersonView(APIView):
     serializer_class = PersonSerializer
 
     def get(self, request):
+        serializers = PersonSerializer(data=request.data)
         if serializers.is_valid():
             name = serializers.validated_data.get("name")
             try:
