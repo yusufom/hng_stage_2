@@ -37,10 +37,6 @@ class PersonView(APIView):
                     }
                 return Response(res, status=status.HTTP_404_NOT_FOUND)
         return Response(serializers.errors, status=status.HTTP_403_FORBIDDEN)
-        
-class PersonCreateView(CreateAPIView):
-    renderer_classes = [CustomRenderer]
-    serializer_class = PersonSerializer
     
     def post(self, request):
         serializers = PersonSerializer(data=request.data)
@@ -56,10 +52,6 @@ class PersonCreateView(CreateAPIView):
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_404_NOT_FOUND)
     
-class PersonUpdateView(UpdateAPIView):
-    renderer_classes = [CustomRenderer]
-    serializer_class = PersonSerializer
-    
     def put(self, request, name):
         try:
             person = Person.objects.get(name=name)
@@ -69,11 +61,8 @@ class PersonUpdateView(UpdateAPIView):
                 return Response(serializers.data, status=status.HTTP_200_OK)
             return Response(serializers.errors, status=status.HTTP_404_NOT_FOUND)
         except Person.DoesNotExist:
-            pass
+            return Response({"message": "Not found"}, status=status.HTTP_404_NOT_FOUND)
         
-class PersonDeleteView(DestroyAPIView):
-    renderer_classes = [CustomRenderer]
-    
     def delete(self, request, name):
         try:
             person = Person.objects.get(name=name)
@@ -82,6 +71,51 @@ class PersonDeleteView(DestroyAPIView):
             
         except Person.DoesNotExist:
             return Response({"message": "Not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+# class PersonCreateView(CreateAPIView):
+#     renderer_classes = [CustomRenderer]
+#     serializer_class = PersonSerializer
+    
+#     def post(self, request):
+#         serializers = PersonSerializer(data=request.data)
+#         if serializers.is_valid():
+#             name = serializers.validated_data.get("name")
+#             try:
+#                 person = Person.objects.get(name=name)
+#                 if person:
+#                     return Response({"message": f"{person.name} already exist"}, status=status.HTTP_200_OK)
+#             except:
+#                 serializers.save()
+            
+#             return Response(serializers.data, status=status.HTTP_201_CREATED)
+#         return Response(serializers.errors, status=status.HTTP_404_NOT_FOUND)
+    
+# class PersonUpdateView(UpdateAPIView):
+#     renderer_classes = [CustomRenderer]
+#     serializer_class = PersonSerializer
+    
+#     def put(self, request, name):
+#         try:
+#             person = Person.objects.get(name=name)
+#             serializers = PersonSerializer(data=request.data, instance=person)
+#             if serializers.is_valid():
+#                 serializers.save()
+#                 return Response(serializers.data, status=status.HTTP_200_OK)
+#             return Response(serializers.errors, status=status.HTTP_404_NOT_FOUND)
+#         except Person.DoesNotExist:
+#             return Response({"message": "Not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+# class PersonDeleteView(DestroyAPIView):
+#     renderer_classes = [CustomRenderer]
+    
+#     def delete(self, request, name):
+#         try:
+#             person = Person.objects.get(name=name)
+#             person.delete()
+#             return Response({"message": f"{person.name} has been deleted"}, status=status.HTTP_200_OK)
+            
+#         except Person.DoesNotExist:
+#             return Response({"message": "Not found"}, status=status.HTTP_404_NOT_FOUND)
         
         
         

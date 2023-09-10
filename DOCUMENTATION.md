@@ -80,7 +80,7 @@ GET /api/
 #### Request
 
 ```http
-POST /api/create/
+POST /api/
 ```
 
 | Parameter | Type | Description |
@@ -100,7 +100,7 @@ POST /api/create/
 #### Request
 
 ```http
-PUT /api/update/Olamilekan/
+PUT /api/Olamilekan/
 ```
 
 | Parameter | Type | Description |
@@ -120,12 +120,8 @@ PUT /api/update/Olamilekan/
 #### Request
 
 ```http
-DELETE /api/delete/Olamilekan/
+DELETE /api/Olamilekan/
 ```
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `name` | `Adewale` | **Required**.  |
 
 #### Response
 ```javascript
