@@ -20,7 +20,9 @@ from base.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', PersonView.as_view()),
-    path('api/<str:name>/', PersonView.as_view()),
+    path('api/<int:id>/', PersonView.as_view()),
+    
+    
     
     
 ]

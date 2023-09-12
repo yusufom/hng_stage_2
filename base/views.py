@@ -18,25 +18,20 @@ class CustomRenderer(renderers.JSONRenderer):
 
 class PersonView(APIView):
     renderer_classes = [CustomRenderer]
-    serializer_class = PersonSerializer
 
-    def get(self, request):
-        serializers = PersonSerializer(data=request.data)
-        if serializers.is_valid():
-            name = serializers.validated_data.get("name")
-            try:
-                person = Person.objects.get(name=name)
-                res = {
-                    "id": person.id,
-                    "name": person.name,
-                    }
-                return Response(res, status=status.HTTP_200_OK)
-            except Person.DoesNotExist:
-                res = {
-                    "message": "Not found",
-                    }
-                return Response(res, status=status.HTTP_404_NOT_FOUND)
-        return Response(serializers.errors, status=status.HTTP_403_FORBIDDEN)
+    def get(self, request, id):
+        try:
+            person = Person.objects.get(id=id)
+            res = {
+                "id": person.id,
+                "name": person.name,
+                }
+            return Response(res, status=status.HTTP_200_OK)
+        except Person.DoesNotExist:
+            res = {
+                "message": "Not found",
+                }
+            return Response(res, status=status.HTTP_404_NOT_FOUND)
     
     def post(self, request):
         serializers = PersonSerializer(data=request.data)
@@ -52,9 +47,10 @@ class PersonView(APIView):
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_404_NOT_FOUND)
     
-    def put(self, request, name):
+    def put(self, request, id):
+        person = Person.objects.get(id=id)
         try:
-            person = Person.objects.get(name=name)
+            person = Person.objects.get(id=id)
             serializers = PersonSerializer(data=request.data, instance=person)
             if serializers.is_valid():
                 serializers.save()
@@ -63,9 +59,9 @@ class PersonView(APIView):
         except Person.DoesNotExist:
             return Response({"message": "Not found"}, status=status.HTTP_404_NOT_FOUND)
         
-    def delete(self, request, name):
+    def delete(self, request, id):
         try:
-            person = Person.objects.get(name=name)
+            person = Person.objects.get(id=id)
             person.delete()
             return Response({"message": f"{person.name} has been deleted"}, status=status.HTTP_200_OK)
             
@@ -108,14 +104,16 @@ class PersonView(APIView):
 # class PersonDeleteView(DestroyAPIView):
 #     renderer_classes = [CustomRenderer]
     
-#     def delete(self, request, name):
+#     def delete(self, request, id):
 #         try:
-#             person = Person.objects.get(name=name)
+#             person = Person.objects.get(id=id)
 #             person.delete()
 #             return Response({"message": f"{person.name} has been deleted"}, status=status.HTTP_200_OK)
             
 #         except Person.DoesNotExist:
 #             return Response({"message": "Not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+
         
         
         

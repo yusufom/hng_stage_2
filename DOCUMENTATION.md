@@ -16,12 +16,8 @@ The use case for this api is to get, create, update or delete a Person object wi
 
 
 ```http
-GET https://person-nsnx.onrender.com/api/
+GET https://person-nsnx.onrender.com/api/:id/
 ```
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `name` | `string` | **Required**.  |
 
 ```http
 POST https://person-nsnx.onrender.com/api/
@@ -33,7 +29,7 @@ POST https://person-nsnx.onrender.com/api/
 
 
 ```http
-PUT https://person-nsnx.onrender.com/api/:name/
+PUT https://person-nsnx.onrender.com/api/:id/
 ```
 
 | Parameter | Type | Description |
@@ -41,7 +37,7 @@ PUT https://person-nsnx.onrender.com/api/:name/
 | `name` | `string` | **Required**.  |
 
 ```http
-DELETE https://person-nsnx.onrender.com/api/:name/
+DELETE https://person-nsnx.onrender.com/api/:id/
 ```
 
 ## Responses
@@ -83,17 +79,7 @@ The `message` attribute contains a message commonly used to indicate errors or, 
 #### Request
 
 ```http
-GET https://person-nsnx.onrender.com/api/
-```
-
-| Parameter | Type | Description |
-| :--- | :--- | :--- |
-| `name` | `Olamilekan` | **Required**.  |
-
-```json
-{
-  "name": "Olamilekan",
-}
+GET https://person-nsnx.onrender.com/api/:id/
 ```
 
 #### Response
@@ -150,7 +136,7 @@ POST https://person-nsnx.onrender.com/api/
 #### Request
 
 ```http
-PUT https://person-nsnx.onrender.com/api/Olamilekan/
+PUT https://person-nsnx.onrender.com/api/:id/
 ```
 
 | Parameter | Type | Description |
@@ -182,7 +168,7 @@ PUT https://person-nsnx.onrender.com/api/Olamilekan/
 #### Request
 
 ```http
-PUT https://person-nsnx.onrender.com/api/Olamilekan/
+PUT https://person-nsnx.onrender.com/api/:id/
 ```
 
 #### Response
