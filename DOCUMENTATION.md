@@ -14,7 +14,7 @@ The use case for this api is to get, create, update or delete a Person object wi
 
 
 ```http
-GET /api/
+GET https://person-nsnx.onrender.com/api/
 ```
 
 | Parameter | Type | Description |
@@ -60,7 +60,7 @@ The `message` attribute contains a message commonly used to indicate errors or, 
 #### Request
 
 ```http
-GET /api/
+GET https://person-nsnx.onrender.com/api/
 ```
 
 | Parameter | Type | Description |
@@ -80,7 +80,7 @@ GET /api/
 #### Request
 
 ```http
-POST /api/
+POST https://person-nsnx.onrender.com/api/
 ```
 
 | Parameter | Type | Description |
@@ -100,7 +100,7 @@ POST /api/
 #### Request
 
 ```http
-PUT /api/Olamilekan/
+PUT https://person-nsnx.onrender.com/api/Olamilekan/
 ```
 
 | Parameter | Type | Description |
@@ -120,7 +120,7 @@ PUT /api/Olamilekan/
 #### Request
 
 ```http
-DELETE /api/Olamilekan/
+DELETE https://person-nsnx.onrender.com/api/Olamilekan/
 ```
 
 #### Response
