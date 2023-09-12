@@ -45,7 +45,7 @@ class PersonView(APIView):
             try:
                 person = Person.objects.get(name=name)
                 if person:
-                    return Response({"message": f"{person.name} already exist"}, status=status.HTTP_200_OK)
+                    return Response({"message": f"{person.name} already exist"}, status=status.HTTP_400_BAD_REQUEST)
             except:
                 serializers.save()
             

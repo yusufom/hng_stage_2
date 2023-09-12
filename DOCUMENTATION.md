@@ -1,13 +1,15 @@
 # Introduction
 
-This is the solution to backend stage two task for the HNG intership
+This document provides information on how to use the API endpoints, standard request and response formats, sample usage, and instructions for setting up and deploying the API.
 
+### Base URL
+
+```
+https://person-nsnx.onrender.com/api/
+```
 ## Use Cases
 
 The use case for this api is to get, create, update or delete a Person object with name
-
-## UML model
-![alt text](https://github.com/yusufom/hng_stage_2/blob/main/uml.png?raw=true)
 
 
 ## Request
@@ -88,11 +90,26 @@ GET https://person-nsnx.onrender.com/api/
 | :--- | :--- | :--- |
 | `name` | `Olamilekan` | **Required**.  |
 
+```json
+{
+  "name": "Olamilekan",
+}
+```
+
 #### Response
-```javascript
+
+- **Success Response (HTTP Status Code: 200 OK):**
+
+```json
 {
   "id" : 1,
   "name" : "Olamilekan",
+}
+```
+- **Error Response (HTTP Status Code: 404 Not Found):**
+```json
+{
+  "message" : "Not found",
 }
 ```
 
@@ -107,12 +124,24 @@ POST https://person-nsnx.onrender.com/api/
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `name` | `Olamilekan` | **Required**.  |
+```json
+{
+  "name": "Olamilekan",
+}
+```
 
 #### Response
-```javascript
+- **Success Response (HTTP Status Code: 200 OK):**
+```json
 {
   "id" : 1,
   "name" : "Olamilekan",
+}
+```
+- **Error Response (HTTP Status Code: 400 Bad Request):**
+```json
+{
+  "message" : "Olamilekan already exist",
 }
 ```
 
@@ -128,34 +157,51 @@ PUT https://person-nsnx.onrender.com/api/Olamilekan/
 | :--- | :--- | :--- |
 | `name` | `Adewale` | **Required**.  |
 
+```json
+{
+  "name": "Adewale",
+}
+```
+
 #### Response
+- **Success Response (HTTP Status Code: 200 OK):**
 ```javascript
 {
   "id" : 1,
   "name" : "Adewale",
 }
 ```
-
+- **Error Response (HTTP Status Code: 404 Bad Request):**
+```json
+{
+  "message" : "Not found",
+}
+```
 ### Delete Person
 
 #### Request
 
 ```http
-DELETE https://person-nsnx.onrender.com/api/Olamilekan/
+PUT https://person-nsnx.onrender.com/api/Olamilekan/
 ```
 
 #### Response
-```javascript
+- **Success Response (HTTP Status Code: 200 OK):**
+```json
 {
   "message" : "Olamilekan has been Deleted",
+}
+```
+- **Error Response (HTTP Status Code: 404 Not Found):**
+```json
+{
+  "message" : "Not found",
 }
 ```
 
 
 
 ## Status Codes
-
-Gophish returns the following status codes in its API:
 
 | Status Code | Description |
 | :--- | :--- |
