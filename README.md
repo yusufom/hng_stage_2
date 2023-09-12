@@ -105,7 +105,7 @@ python update_person.py
 
 ### Get a Person by Name
 
-- **Endpoint**: `POST /api/:id`
+- **Endpoint**: `POST /api/:id/`
 - **Description**: get a person by their ID
 - **Request Body**:
 
@@ -121,7 +121,7 @@ python update_person.py
 
 ### Update a Person by Name
 
-- **Endpoint**: `PUT /api/:id`
+- **Endpoint**: `PUT /api/:id/`
 - **Description**: Update a person's id by a new name
 - **Request Body**:
 
@@ -142,7 +142,7 @@ python update_person.py
 
 ### Delete a Person by Name
 
-- **Endpoint**: `DELETE /api/:id`
+- **Endpoint**: `DELETE /api/:id/`
 - **Description**: Delete a person by their ID.
 - **Response**:
 
@@ -157,3 +157,4 @@ python update_person.py
 - If the provided ID does not exist, you will receive a `404 Not Found` response.
 - If the request body does not contain valid name and value fields, you will receive a `400 Bad Request` response.
 - If you navigate to an invalid page, you will receive a `500 Internal Server Error` response.
+- All endpoint not ending with / will be treated as a get request
