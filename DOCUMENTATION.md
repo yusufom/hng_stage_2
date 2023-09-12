@@ -21,6 +21,27 @@ GET https://person-nsnx.onrender.com/api/
 | :--- | :--- | :--- |
 | `name` | `string` | **Required**.  |
 
+```http
+POST https://person-nsnx.onrender.com/api/
+```
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `name` | `string` | **Required**.  |
+
+
+```http
+PUT https://person-nsnx.onrender.com/api/:name/
+```
+
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `name` | `string` | **Required**.  |
+
+```http
+DELETE https://person-nsnx.onrender.com/api/:name/
+```
+
 ## Responses
 
 The api endpoint returns a JSON representation of the resource created or edit.
