@@ -1,6 +1,6 @@
 import requests
 
-url = 'https://person-nsnx.onrender.com/api'
+url = 'https://person-nsnx.onrender.com/api/'
 
 def create_person(name):
     r = requests.post(url, {'name' : name})

@@ -9,4 +9,4 @@ def update_person(id, new_name):
 
 
 if __name__ == '__main__':
-    print(update_person(1, 'Doyin'))
+    print(update_person(3, 'Doyin'))

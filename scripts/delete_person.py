@@ -9,4 +9,4 @@ def delete_person(id):
 
 
 if __name__ == '__main__':
-    print(delete_person(1))
+    print(delete_person(3))
